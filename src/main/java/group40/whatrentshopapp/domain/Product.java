@@ -39,6 +39,11 @@ public class Product {
    // @JsonBackReference (um Endlosschleife zu vermeiden, verwendet man @JsonBackReference und @JsonManagedReference in Category über List<Product>.)
     private Category category;
 
+    @ManyToOne
+    @JoinColumn(name = "inventory_id")
+    private Inventory inventory;
+
+
     public Product(String name, String description, Double price, Integer quantity) {
         this.name = name;
         this.description = description;
