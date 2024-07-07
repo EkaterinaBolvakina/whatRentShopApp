@@ -1,0 +1,233 @@
+Documentation for WhatRentShopApp Project
+
+Task Description:
+The WhatRentShopApp project is an application for managing categories and products in an online store. 
+The main task of the application is to provide functionality for 
+adding, updating, deleting, and searching for categories and products, as well as managing these entities.
+
+--------------------------------------------------------------------------------------------------------------
+Controller Descriptions:
+**************************************************************************************************************************************************************
+Category Controllers:
+============================================================================================================================
+1. AddCategoryController
+
+- Endpoint: /categories/addNew
+- Method: POST
+- Description: Handles the request to add a new category.
+- Request Body: CategoryRequestDto (category name)
+- Response: CategoryResponseDto (added category)
+
+Code:
+@PostMapping("/addNew")
+public ResponseEntity<CategoryResponseDto> addCategory(@RequestBody CategoryRequestDto requestDto) {
+    return addCategoryService.addCategory(requestDto);
+}
+============================================================================================================================
+2. DeleteCategoryController
+
+- Endpoint: /categories/{id}
+- Method: DELETE
+- Description: Handles the request to delete a category by its ID.
+- Path Parameters: id (category ID)
+- Response: Void
+
+Code:
+@DeleteMapping("/{id}")
+public ResponseEntity<Void> deleteCategoryById(@PathVariable Integer id) {
+    return deleteCategoryService.deleteCategoryById(id);
+}
+============================================================================================================================
+3. FindCategoryController
+
+- Endpoint: /categories
+- Method: GET
+- Description: Handles the request to retrieve all categories.
+- Response: List of CategoryResponseDto
+
+Code:
+@GetMapping
+public ResponseEntity<List<CategoryResponseDto>> findAllCategories() {
+    return findCategoryService.findAll();
+}
+-------------------------------------------------------------------------------------------------------------
+- Endpoint: /categories/{id}
+- Method: GET
+- Description: Handles the request to retrieve a category by its ID.
+- Path Parameters: id (category ID)
+- Response: CategoryResponseDto
+
+Code:
+@GetMapping("/{id}")
+public ResponseEntity<CategoryResponseDto> findCategoryById(@PathVariable Integer id) {
+    return findCategoryService.findById(id);
+}
+-------------------------------------------------------------------------------------------------------------
+- Endpoint: /categories/findByName
+- Method: GET
+- Description: Handles the request to retrieve a category by its name.
+- Query Parameters: categoryName (category name)
+- Response: CategoryResponseDto
+
+Code:
+@GetMapping("/findByName")
+public ResponseEntity<CategoryResponseDto> findCategoryByName(@RequestParam(value = "categoryName") String name) {
+    return findCategoryService.findByName(name);
+}
+============================================================================================================================
+4. UpdateCategoryController
+
+- Endpoint: /categories/update/{id}
+- Method: PUT
+- Description: Handles the request to update the name of a category by its ID.
+- Path Parameters: id (category ID)
+- Request Body: CategoryRequestDto (new category name)
+- Response: CategoryResponseDto (updated category)
+
+Code:
+@PutMapping("/update/{id}")
+public ResponseEntity<CategoryResponseDto> updateCategoryNameById(@PathVariable Integer id, @RequestBody CategoryRequestDto categoryRequestDto) {
+    return updateCategoryService.updateCategoryNameById(id, categoryRequestDto.getCategoryName());
+}
+**************************************************************************************************************************************************************
+Product Controllers:
+
+1. AddProductController
+
+- Endpoint: /products/addNew
+- Method: POST
+- Description: Handles the request to add a new product.
+- Request Body: ProductRequestDto (product details)
+- Response: ProductResponseDto (added product)
+
+Code
+@PostMapping("/addNew")
+public ResponseEntity<ProductResponseDto> addProduct(@RequestBody ProductRequestDto productRequestDto) {
+    return addProductService.addProduct(productRequestDto);
+}
+============================================================================================================================
+2. DeleteProductController
+
+- Endpoint: /products/{id}
+- Method: DELETE
+- Description: Handles the request to delete a product by its ID.
+- Path Parameters: id (product ID)
+- Response: Void
+
+Code:
+@DeleteMapping("/{id}")
+public ResponseEntity<Void> deleteProductById(@PathVariable Integer id) {
+    return deleteProductService.deleteProductById(id);
+}
+============================================================================================================================
+3. FindProductController
+
+- Endpoint: /products
+- Method: GET
+- Description: Handles the request to retrieve all products.
+- Response: List of ProductResponseDto
+
+Code:
+@GetMapping
+public ResponseEntity<List<ProductResponseDto>> findAllProducts() {
+    return findProductService.findAll();
+}
+-------------------------------------------------------------------------------------------------------------
+- Endpoint: /products/{id}
+- Method: GET
+- Description: Handles the request to retrieve a product by its ID.
+- Path Parameters: id (product ID)
+- Response: ProductResponseDto
+
+Code
+@GetMapping("/{id}")
+public ResponseEntity<ProductResponseDto> findProductById(@PathVariable Integer id) {
+    return findProductService.findById(id);
+}
+-------------------------------------------------------------------------------------------------------------
+- Endpoint: /products/findByName
+- Method: GET
+- Description: Handles the request to retrieve products by their name.
+- Query Parameters: productName (product name)
+- Response: List of ProductResponseDto
+
+Code
+@GetMapping("/findByName")
+public ResponseEntity<List<ProductResponseDto>> findProductByName(@RequestParam(value = "productName") String name) {
+    return findProductService.findByName(name);
+}
+-------------------------------------------------------------------------------------------------------------
+- Endpoint: /products/findByDescription
+- Method: GET
+- Description: Handles the request to retrieve products by their description.
+- Query Parameters: productDescription (product description)
+- Response: List of ProductResponseDto
+
+Code
+@GetMapping("/findByDescription")
+public ResponseEntity<List<ProductResponseDto>> findProductByDescription(@RequestParam(value = "productDescription") String description) {
+    return findProductService.findByDescription(description);
+}
+-------------------------------------------------------------------------------------------------------------
+- Endpoint: /products/findByPrice
+- Method: GET
+- Description: Handles the request to retrieve products by their price.
+- Query Parameters: productPrice (product price)
+- Response: List of ProductResponseDto
+
+Code
+@GetMapping("/findByPrice")
+public ResponseEntity<List<ProductResponseDto>> findProductByPrice(@RequestParam(value = "productPrice") Double price) {
+    return findProductService.findByPrice(price);
+}
+-------------------------------------------------------------------------------------------------------------
+- Endpoint: /products/findByPrice-Min-Max
+- Method: GET
+- Description: Handles the request to retrieve products within a price range.
+- Query Parameters: priceMin (minimum price), priceMax (maximum price)
+- Response: List of ProductResponseDto
+
+Code
+@GetMapping("/findByPrice-Min-Max")
+public ResponseEntity<List<ProductResponseDto>> findProductByPriceInterval(@RequestParam(value = "priceMin") Double priceMin, @RequestParam(value = "priceMax") Double priceMax) {
+    return findProductService.findByPriceInterval(priceMin, priceMax);
+}
+-------------------------------------------------------------------------------------------------------------
+- Endpoint: /products/findByQuantity
+- Method: GET
+- Description: Handles the request to retrieve products by their quantity.
+- Query Parameters: productQuantity (product quantity)
+- Response: List of ProductResponseDto
+
+Code:
+@GetMapping("/findByQuantity")
+public ResponseEntity<List<ProductResponseDto>> findProductByQuantity(@RequestParam(value = "productQuantity") Integer productQuantity) {
+    return findProductService.findByQuantity(productQuantity);
+}
+-------------------------------------------------------------------------------------------------------------
+- Endpoint: /products/findByQuantity-Min-Max
+- Method: GET
+- Description: Handles the request to retrieve products within a quantity range.
+- Query Parameters: quantityMin (minimum quantity), quantityMax (maximum quantity)
+- Response: List of ProductResponseDto
+
+Code:
+@GetMapping("/findByQuantity-Min-Max")
+public ResponseEntity<List<ProductResponseDto>> findProductByQuantityInterval(@RequestParam(value = "quantityMin") Integer quantityMin, @RequestParam(value = "quantityMax") Integer quantityMax) {
+    return findProductService.findByQuantityInterval(quantityMin, quantityMax);
+}
+
+============================================================================================================================
+4. UpdateProductController
+
+- Endpoint: /products/update/{id}
+- Method: PUT
+- Description: Handles the request to update the information of a product by its ID.
+- Path Parameters: id (product ID)
+- Request Body: ProductRequestDto (product update details)
+- Response: ProductResponseDto (updated product)
+
+Code:
+@PutMapping("/update/{id}")
+public ResponseEntity<ProductResponseDto> updateProduct(@PathVariable Integer id, @RequestBody ProductRequestDto productRequestDto) {
+    return updateProductService.updateProduct(id

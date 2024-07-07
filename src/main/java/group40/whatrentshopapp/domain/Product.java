@@ -1,7 +1,6 @@
 package group40.whatrentshopapp.domain;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -46,5 +45,4 @@ public class Product {
         this.price = price;
         this.quantity = quantity;
     }
-
 }
