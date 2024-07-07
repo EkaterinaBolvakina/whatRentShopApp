@@ -1,12 +1,13 @@
 package group40.whatrentshopapp.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 @Entity
-@Table(name= "product") // wenn der Name der Tabelle geändert wird, sond ist @Table in @Data enthalten
+@Table(name= "product") // wenn der Name der Tabelle geändert wird, so ist @Table in @Data enthalten
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,7 +32,7 @@ public class Product {
     private Double price;
 
     @Column(name="product_quantity")
-    //@NotBlank(message = "Product quantity must be not blank")
+   // @NotBlank(message = "Product quantity must be not blank")
     private Integer quantity;
 
     @ManyToOne(fetch = FetchType.EAGER)

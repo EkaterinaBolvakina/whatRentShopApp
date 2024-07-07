@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <!-- добавляем описание наших изменений -->
+    <changeSet id="create.table.category" author="author1">
+        <createTable tableName="category">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true"/> </column>
+            <column name="category_name" type="VARCHAR (255)" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create.table.product" author="author1">
+        <createTable tableName="product">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+
+            <column name="product_name" type="VARCHAR (255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="product_description" type="VARCHAR (255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="product_price" type="DOUBLE">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="product_quantity" type="INT">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="category_id" type="INT">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="product" baseColumnNames="category_id" constraintName="fk_product_category_id"
+                                 referencedTableName="category"
+                                 referencedColumnNames="id" />
+    </changeSet>
+
+    <!--    внесем новые изменения в базу   -->
+
+    <changeSet id="insert.default.categories" author="author1">
+        <insert tableName="category">
+            <column name="category_name" value="CATEGORY 1"></column>
+        </insert>
+        <insert tableName="category">
+            <column name="category_name" value="CATEGORY 2"/>
+        </insert>
+        <insert tableName="category">
+            <column name="category_name" value="CATEGORY 3"/>
+        </insert>
+        <insert tableName="category">
+            <column name="category_name" value="CATEGORY 4"/>
+        </insert>
+        <insert tableName="category">
+            <column name="category_name" value="CATEGORY 5"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert.default.products" author="author1">
+        <insert tableName="product">
+            <column name="product_name" value="Product1"></column>
+            <column name="product_description" value="Product1 description"/>
+            <column name="product_price" value="99.99"/>
+            <column name="product_quantity" value="3"/>
+            <column name="category_id" value="1"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="product_name" value="Product2"></column>
+            <column name="product_description" value="Product2 description"/>
+            <column name="product_price" value="25.99"/>
+            <column name="product_quantity" value="1"/>
+            <column name="category_id" value="1"/>
+        </insert>
+
+        <insert tableName="product">
+            <column name="product_name" value="Product3"></column>
+            <column name="product_description" value="Product3 description"/>
+            <column name="product_price" value="33"/>
+            <column name="product_quantity" value="10"/>
+            <column name="category_id" value="3"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
