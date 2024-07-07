@@ -1,4 +1,4 @@
-package group40.whatrentshopapp.service.util.mapping;
+package group40.whatrentshopapp.service.mapping;
 
 import group40.whatrentshopapp.domain.Product;
 import group40.whatrentshopapp.dto.productDto.ProductRequestDto;

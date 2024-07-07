@@ -2,8 +2,8 @@ package group40.whatrentshopapp.service.productService;
 
 
 import group40.whatrentshopapp.repository.IProductRepository;
-import group40.whatrentshopapp.service.productService.productInterface.IDeleteProductService;
-import group40.whatrentshopapp.service.util.exception.NotFoundException;
+import group40.whatrentshopapp.service.interfaces.productServiceInterface.IDeleteProductService;
+import group40.whatrentshopapp.exception_handling.exceptions.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package group40.whatrentshopapp.service.productService.productInterface;
+package group40.whatrentshopapp.service.interfaces.productServiceInterface;
 
 import group40.whatrentshopapp.dto.productDto.ProductResponseDto;
 import org.springframework.http.ResponseEntity;

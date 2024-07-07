@@ -1,9 +1,9 @@
-package group40.whatrentshopapp.controller;
+package group40.whatrentshopapp.exception_handling;
 
-import group40.whatrentshopapp.service.util.exception.AlreadyExistException;
-import group40.whatrentshopapp.service.util.exception.CustomValidationException;
-import group40.whatrentshopapp.service.util.exception.IsEmptyException;
-import group40.whatrentshopapp.service.util.exception.NotFoundException;
+import group40.whatrentshopapp.exception_handling.exceptions.AlreadyExistException;
+import group40.whatrentshopapp.exception_handling.exceptions.CustomValidationException;
+import group40.whatrentshopapp.exception_handling.exceptions.IsEmptyException;
+import group40.whatrentshopapp.exception_handling.exceptions.NotFoundException;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.ValidationException;
 import org.springframework.http.HttpStatus;
