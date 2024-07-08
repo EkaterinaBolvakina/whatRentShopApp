@@ -4,5 +4,5 @@ import group40.whatrentshopapp.dto.categoryDto.CategoryResponseDto;
 import org.springframework.http.ResponseEntity;
 
 public interface IUpdateCategoryService {
-    public ResponseEntity<CategoryResponseDto> updateCategoryNameById(Integer id, String name);
+    ResponseEntity<CategoryResponseDto> updateCategoryNameById(Integer id, String name);
 }

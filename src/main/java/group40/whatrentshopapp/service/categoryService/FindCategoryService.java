@@ -1,17 +1,12 @@
 package group40.whatrentshopapp.service.categoryService;
 
 import group40.whatrentshopapp.domain.Category;
-import group40.whatrentshopapp.domain.Product;
 import group40.whatrentshopapp.dto.categoryDto.CategoryResponseDto;
-import group40.whatrentshopapp.dto.productDto.ProductResponseDto;
 import group40.whatrentshopapp.exception_handling.exceptions.IsEmptyException;
 import group40.whatrentshopapp.exception_handling.exceptions.NotFoundException;
 import group40.whatrentshopapp.repository.ICategoryRepository;
-import group40.whatrentshopapp.repository.IProductRepository;
 import group40.whatrentshopapp.service.interfaces.categorySericeInterface.IFindCategoryService;
-import group40.whatrentshopapp.service.interfaces.productServiceInterface.IFindProductService;
 import group40.whatrentshopapp.service.mapping.CategoryConverter;
-import group40.whatrentshopapp.service.mapping.ProductConverter;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
