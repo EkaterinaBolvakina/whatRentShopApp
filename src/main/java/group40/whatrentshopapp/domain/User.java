@@ -43,8 +43,6 @@ public class User {
     private Role role;
 
     @OneToOne(mappedBy = "ROLE_SELLER", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Inventory inventory;
+    private Seller seller;
 
-    @OneToMany(mappedBy = "ROLE_BUYER", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Cart> carts = new HashSet<>();
 }

@@ -40,8 +40,11 @@ public class Product {
     private Category category;
 
     @ManyToOne
-    @JoinColumn(name = "inventory_id")
-    private Inventory inventory;
+    @JoinColumn(name = "seller_id")
+    private Seller seller;
+
+    @Column(name="is_on_stock")
+    private Boolean isOnStock;
 
 
     public Product(String name, String description, Double price, Integer quantity) {

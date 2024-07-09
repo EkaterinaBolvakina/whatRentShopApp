@@ -39,6 +39,9 @@
             <column name="category_id" type="INT">
                 <constraints nullable="false" />
             </column>
+            <column name="is_on_stock" type="TINYINT(1)">
+                <constraints nullable="false" />
+            </column>
         </createTable>
         <addForeignKeyConstraint baseTableName="product" baseColumnNames="category_id" constraintName="fk_product_category_id"
                                  referencedTableName="category"
@@ -72,6 +75,7 @@
             <column name="product_price" value="99.99"/>
             <column name="product_quantity" value="3"/>
             <column name="category_id" value="1"/>
+            <column name="is_on_stock" value="1"/>
         </insert>
 
         <insert tableName="product">
@@ -80,6 +84,7 @@
             <column name="product_price" value="25.99"/>
             <column name="product_quantity" value="1"/>
             <column name="category_id" value="1"/>
+            <column name="is_on_stock" value="1"/>
         </insert>
 
         <insert tableName="product">
@@ -88,6 +93,7 @@
             <column name="product_price" value="33"/>
             <column name="product_quantity" value="10"/>
             <column name="category_id" value="3"/>
+            <column name="is_on_stock" value="1"/>
         </insert>
     </changeSet>
 
