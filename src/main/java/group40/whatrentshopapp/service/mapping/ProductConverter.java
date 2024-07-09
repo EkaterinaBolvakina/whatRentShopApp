@@ -51,6 +51,12 @@ public class ProductConverter {
         if (product.getCategory() != null) {
             dto.setProductCategory(product.getCategory());
         }
+        if (product.getIsOnStock() != null) {
+            dto.setIsOnStock(product.getIsOnStock());
+        }
+        if (product.getSeller()!= null) {
+            dto.setSeller(product.getSeller());
+        }
         return dto;
     }
 }

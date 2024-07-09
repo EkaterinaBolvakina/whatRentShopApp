@@ -45,7 +45,7 @@ public class FindUserService implements IFindUserService {
             throw new NotFoundException("User with username '" + username + "' not found");
         }
     }
-
+/*
     @Override
     public ResponseEntity<List<UserResponseDto>> findUserByRole(Integer roleId) {
         List<User> allUsers = userRepository.findUserByRole(roleId);
@@ -58,7 +58,7 @@ public class FindUserService implements IFindUserService {
             throw new NotFoundException("No user with role id = " + roleId + " is found");
         }
     }
-
+*/
     @Override
     public ResponseEntity<UserResponseDto> findUserById(Integer id) {
         Optional<User> foundedUserOptional = userRepository.findUserById(id);

@@ -10,5 +10,5 @@ public interface IFindUserService {
     ResponseEntity<UserResponseDto> findUserById(Integer id);
     ResponseEntity<UserResponseDto> findUserByEmail(String email);
     ResponseEntity<UserResponseDto> findUserByUsername(String username);
-    ResponseEntity<List<UserResponseDto>> findUserByRole(Integer roleId);
+ //   ResponseEntity<List<UserResponseDto>> findUserByRole(Integer roleId);
 }

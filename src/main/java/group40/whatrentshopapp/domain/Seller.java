@@ -21,10 +21,10 @@ public class Seller {
     @Column(name="is_active")
     private Boolean isActive;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User ROLE_SELLER;
+  //  @OneToOne
+  //  @JoinColumn(name = "user_id")
+  //  private User ROLE_SELLER;
 
-    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Product> products = new HashSet<>();
+   // @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
+   // private Set<Product> products = new HashSet<>();
 }
