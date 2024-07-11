@@ -1,7 +1,6 @@
 package group40.whatrentshopapp.dto.productDto;
 
 import group40.whatrentshopapp.domain.Category;
-import group40.whatrentshopapp.domain.Seller;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,5 +16,5 @@ public class ProductResponseDto {
     private Integer productQuantity;
     private Category productCategory;
     private Boolean isOnStock;
-    private Seller seller;
+    private Integer sellerId;
 }

@@ -54,8 +54,8 @@ public class ProductConverter {
         if (product.getIsOnStock() != null) {
             dto.setIsOnStock(product.getIsOnStock());
         }
-        if (product.getSeller()!= null) {
-            dto.setSeller(product.getSeller());
+        if (product.getSeller().getId()!= null) {
+            dto.setSellerId(product.getSeller().getId());
         }
         return dto;
     }
